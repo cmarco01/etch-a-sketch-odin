@@ -18,3 +18,8 @@
     background-color: white;
     outline: 2px solid blue;
 }
+
+button {
+    padding: 10px;
+    margin-bottom: 10px;
+}

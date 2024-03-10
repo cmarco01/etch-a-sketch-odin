@@ -1,13 +1,34 @@
-/*
-so wanna make 1 div w/ class = row. this initializes a row.
-the number initialized will be dependent on how many sqaures the user wants
- (but at the start, we're defaulting to 16).
-
- within each row, using a for loop, create new divs w/ class = item. number
- created, again, dependent on how many user chooses (default 16).
-*/
 
 const mainContainer = document.querySelector("#main-container");
+
+const btn = document.createElement("button");
+mainContainer.appendChild(btn);
+btn.textContent = "Change Size";
+btn.onclick = getNumSquares;
+
+function getNumSquares() {
+    let numSquares = parseInt(prompt("Enter num of squares (max 100): "));
+    // console.log(numSquares);
+    // console.log(isNaN(numSquares));
+
+    while (isNaN(numSquares) || numSquares < 1) {
+        numSquares = parseInt(prompt("Invalid input. Numbers only from 1 to 100. Enter num of squares (max 100): "));
+    }
+    
+    if (numSquares > 100) {
+        numSquares = 100;
+    }
+
+    clearBoard();
+    createBoard(numSquares);
+}
+
+function clearBoard() {
+    const board = document.querySelectorAll("#main-container div");
+    board.forEach((square) => {
+        square.remove();
+    });
+}
 
 function createBoard(numSquares) {
     // for-loop to create number of rows
@@ -25,14 +46,13 @@ function createBoard(numSquares) {
             newSquare.addEventListener("mouseover", function(e) {changeColor(e)});
             newRow.appendChild(newSquare);
         }
-
     }
 }
 
 function changeColor (event) {
     event.target.className = "highlight";
     // un-comment if i want it to be so on hover, it changes from white to pink
-    // (as defined by classes highlight and no-highlight), or pink to white
+    // (color defined by classes highlight and no-highlight), or pink to white
     /*
     if (event.target.className == "no-highlight") {
         event.target.className = "highlight";
@@ -40,7 +60,6 @@ function changeColor (event) {
         event.target.className = "no-highlight";
     }
     */
-    
 }
 
 
