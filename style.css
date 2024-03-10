@@ -1,0 +1,13 @@
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row div {
+    height: 80px;
+    outline: 2px solid blue;
+    flex: auto;
+}
+
