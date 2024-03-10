@@ -21,11 +21,26 @@ function createBoard(numSquares) {
 
         for (let k=0; k < numSquares; k++) {
             const newSquare = document.createElement("div");
-            newSquare.className = "item";
+            newSquare.className = "no-highlight";
+            newSquare.addEventListener("mouseover", function(e) {changeColor(e)});
             newRow.appendChild(newSquare);
         }
 
     }
+}
+
+function changeColor (event) {
+    event.target.className = "highlight";
+    // un-comment if i want it to be so on hover, it changes from white to pink
+    // (as defined by classes highlight and no-highlight), or pink to white
+    /*
+    if (event.target.className == "no-highlight") {
+        event.target.className = "highlight";
+    } else if (event.target.className == "highlight") {
+        event.target.className = "no-highlight";
+    }
+    */
+    
 }
 
 

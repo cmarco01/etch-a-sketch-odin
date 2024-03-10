@@ -1,8 +1,6 @@
 
 .row {
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .row div {
@@ -11,3 +9,12 @@
     flex: auto;
 }
 
+.highlight {
+    background-color: lightpink;
+    outline: 2px solid blue;
+}
+
+.no-highlight {
+    background-color: white;
+    outline: 2px solid blue;
+}
