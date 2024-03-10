@@ -50,9 +50,16 @@ function createBoard(numSquares) {
 }
 
 function changeColor (event) {
-    event.target.className = "highlight";
+    // just found this method for a random color on google haha
+    randomColor = Math.floor(Math.random()*16777215).toString(16);
+    event.target.style.backgroundColor = "#" + randomColor;
+
+    // un-comment if i want to be a solid color swap between the two colors
+    //   defined by classes highlight and no-highlight on CSS
+    // event.target.className = "highlight";
+
     // un-comment if i want it to be so on hover, it changes from white to pink
-    // (color defined by classes highlight and no-highlight), or pink to white
+    //   (color defined by classes highlight and no-highlight), or pink to white
     /*
     if (event.target.className == "no-highlight") {
         event.target.className = "highlight";
